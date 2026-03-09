@@ -1,53 +1,49 @@
 import { NavLink } from 'react-router-dom';
-import { cn } from '@/utils/cn';
 
-const NAV_ITEMS = [
-  { to: '/dashboard', label: 'Dashboard', icon: '⚡' },
-  { to: '/protocol', label: 'My Protocol', icon: '📋' },
-  { to: '/profile', label: 'Profile', icon: '👤' },
+const navItems = [
+  { to: '/', icon: '◎', label: 'Ingredient Scanner' },
+  { to: '/dashboard', icon: '✦', label: 'Dashboard' },
+  { to: '/protocol', icon: '◈', label: 'My Protocol' },
+  { to: '/profile', icon: '○', label: 'Profile' },
 ];
 
 export function Sidebar() {
   return (
-    <aside className="fixed left-0 top-0 h-screen w-60 bg-zinc-950 border-r border-zinc-800 flex flex-col z-10">
+    <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-cream-200 flex flex-col z-10">
       {/* Logo */}
-      <div className="px-6 py-6 border-b border-zinc-800">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-violet-600 rounded-lg flex items-center justify-center">
-            <span className="text-white text-sm font-black">A</span>
-          </div>
-          <div>
-            <p className="text-white font-bold text-sm tracking-wide">AURA</p>
-            <p className="text-zinc-500 text-xs">Optimization Lab</p>
-          </div>
-        </div>
+      <div className="px-8 py-8 border-b border-cream-100">
+        <h1 className="font-display text-2xl font-light tracking-wide text-warm-900">
+          aura
+        </h1>
+        <p className="text-xs text-warm-400 mt-0.5 tracking-widest uppercase">
+          ingredient intelligence
+        </p>
       </div>
 
-      {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
-        {NAV_ITEMS.map((item) => (
+      {/* Navigation */}
+      <nav className="flex-1 px-4 py-6 space-y-1">
+        {navItems.map(item => (
           <NavLink
             key={item.to}
             to={item.to}
             className={({ isActive }) =>
-              cn(
-                'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-150',
+              `flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all duration-150 ${
                 isActive
-                  ? 'bg-violet-600/20 text-violet-300 border border-violet-500/20'
-                  : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800'
-              )
+                  ? 'bg-cream-100 text-warm-900 font-medium'
+                  : 'text-warm-500 hover:text-warm-800 hover:bg-cream-50'
+              }`
             }
           >
             <span className="text-base">{item.icon}</span>
-            <span className="font-medium">{item.label}</span>
+            {item.label}
           </NavLink>
         ))}
       </nav>
 
       {/* Footer */}
-      <div className="px-6 py-4 border-t border-zinc-800">
-        <p className="text-zinc-600 text-xs">AURA Beta v0.1</p>
-        <p className="text-zinc-700 text-xs mt-0.5">AI Optimization Engine</p>
+      <div className="px-8 py-6 border-t border-cream-100">
+        <p className="text-xs text-warm-300 tracking-wide">AURA Beta v0.2</p>
+        <p className="text-xs text-warm-300">For your skin, by your skin.</p>
       </div>
     </aside>
   );

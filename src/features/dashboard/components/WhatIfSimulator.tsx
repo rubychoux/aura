@@ -42,8 +42,8 @@ export function WhatIfSimulator({ baseProfile, baseScore }: Props) {
 
   return (
     <div className="space-y-6">
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4">
-        <p className="text-xs text-zinc-500 leading-relaxed">
+      <div className="bg-cream-50 border border-cream-200 rounded-2xl p-4">
+        <p className="text-xs text-warm-500 leading-relaxed">
           Adjust the variables below to simulate how lifestyle changes would affect your optimization score in real time. No changes are saved to your profile.
         </p>
       </div>
@@ -51,7 +51,7 @@ export function WhatIfSimulator({ baseProfile, baseScore }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Sliders */}
         <Card>
-          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-6">
+          <p className="text-xs font-medium text-warm-400 uppercase tracking-widest mb-6">
             Adjust Variables
           </p>
           <div className="space-y-6">
@@ -92,18 +92,18 @@ export function WhatIfSimulator({ baseProfile, baseScore }: Props) {
 
         {/* Result */}
         <Card className="flex flex-col items-center justify-center text-center">
-          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-6">
+          <p className="text-xs font-medium text-warm-400 uppercase tracking-widest mb-6">
             Simulated Score
           </p>
 
           {simulatedScore && (
             <>
-              <div className="text-7xl font-black text-white mb-2">
+              <div className="text-7xl font-black text-warm-900 mb-2">
                 {simulatedScore.composite}
               </div>
 
               <div className={`text-2xl font-bold mb-4 ${
-                isImproved ? 'text-emerald-400' : isWorse ? 'text-red-400' : 'text-zinc-400'
+                isImproved ? 'text-sage-500' : isWorse ? 'text-red-500' : 'text-warm-400'
               }`}>
                 {scoreDelta > 0 ? `+${scoreDelta}` : scoreDelta === 0 ? '±0' : scoreDelta}
                 <span className="text-sm font-normal ml-1">vs current</span>
@@ -111,10 +111,10 @@ export function WhatIfSimulator({ baseProfile, baseScore }: Props) {
 
               <div className={`w-full p-4 rounded-xl border text-sm ${
                 isImproved
-                  ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300'
+                  ? 'bg-sage-50 border-sage-200 text-sage-500'
                   : isWorse
-                  ? 'bg-red-500/10 border-red-500/20 text-red-300'
-                  : 'bg-zinc-800 border-zinc-700 text-zinc-400'
+                  ? 'bg-red-50 border-red-200 text-red-600'
+                  : 'bg-cream-100 border-cream-300 text-warm-400'
               }`}>
                 {isImproved
                   ? `These changes would improve your score by ${scoreDelta} points.`
@@ -126,11 +126,10 @@ export function WhatIfSimulator({ baseProfile, baseScore }: Props) {
               {/* Category deltas */}
               <div className="w-full mt-6 space-y-2">
                 {simulatedScore.categories.map((cat) => {
-                  const baseCat = cat;
                   return (
                     <div key={cat.category} className="flex items-center justify-between text-xs">
-                      <span className="text-zinc-500 capitalize">{cat.category}</span>
-                      <span className="font-semibold text-zinc-300">{cat.score}/100</span>
+                      <span className="text-warm-500 capitalize">{cat.category}</span>
+                      <span className="font-semibold text-warm-700">{cat.score}/100</span>
                     </div>
                   );
                 })}

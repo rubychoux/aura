@@ -7,10 +7,10 @@ interface Props {
 }
 
 const GRADE_CONFIG = {
-  S: { color: '#10b981', label: 'Peak Performance' },
-  A: { color: '#8b5cf6', label: 'Highly Optimized' },
-  B: { color: '#f59e0b', label: 'Functional' },
-  C: { color: '#f97316', label: 'Needs Attention' },
+  S: { color: '#4A7C4A', label: 'Peak Performance' },
+  A: { color: '#C97060', label: 'Highly Optimized' },
+  B: { color: '#C48900', label: 'Functional' },
+  C: { color: '#A85548', label: 'Needs Attention' },
   D: { color: '#ef4444', label: 'Critical State' },
 } as const;
 
@@ -30,7 +30,7 @@ export function OptimizationScoreCard({ score }: Props) {
 
   return (
     <Card className="flex flex-col items-center justify-center text-center">
-      <p className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-6">
+      <p className="text-xs font-medium text-warm-400 uppercase tracking-widest mb-6">
         Optimization Score
       </p>
 
@@ -39,7 +39,7 @@ export function OptimizationScoreCard({ score }: Props) {
           <circle
             cx="60" cy="60" r="54"
             fill="none"
-            stroke="#27272a"
+            stroke="#EDE5D8"
             strokeWidth="10"
           />
           <circle
@@ -54,8 +54,8 @@ export function OptimizationScoreCard({ score }: Props) {
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-5xl font-black text-white">{score.composite}</span>
-          <span className="text-xs text-zinc-500 uppercase tracking-widest mt-1">/ 100</span>
+          <span className="text-5xl font-black text-warm-900">{score.composite}</span>
+          <span className="text-xs text-warm-400 uppercase tracking-widest mt-1">/ 100</span>
         </div>
       </div>
 
@@ -65,8 +65,8 @@ export function OptimizationScoreCard({ score }: Props) {
       >
         {grade}
       </span>
-      <p className="text-zinc-400 text-sm">{config.label}</p>
-      <p className="text-zinc-600 text-xs mt-4">
+      <p className="text-warm-500 text-sm">{config.label}</p>
+      <p className="text-warm-400 text-xs mt-4">
         Last updated {new Date(score.computedAt).toLocaleDateString()}
       </p>
     </Card>

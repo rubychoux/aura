@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
-import type { PartialProfile, UserProfile } from '@/types';
+import type { PartialProfile } from '@/types';
 import type { ProfileAction } from './profile.actions';
 import { profileReducer, DEFAULT_PROFILE } from './profile.reducer';
 

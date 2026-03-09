@@ -9,13 +9,36 @@ import { formatGoal } from '@/utils/format';
 type Tab = 'dashboard' | 'simulator';
 
 export function DashboardShell() {
-  const { profile, score, protocol, isReady } = useDashboard();
+  const { profile, score, isReady } = useDashboard();
   const [activeTab, setActiveTab] = useState<Tab>('dashboard');
 
   if (!isReady || !score) {
     return (
-      <div className="flex items-center justify-center h-96">
-        <p className="text-zinc-500">Complete your profile to see your dashboard.</p>
+      <div className="max-w-2xl mx-auto space-y-8 pt-8">
+        <div>
+          <h1 className="font-display text-2xl font-light text-warm-900">Optimization Dashboard</h1>
+          <p className="text-warm-400 text-sm mt-1">Your personalized health and skin scores, live.</p>
+        </div>
+        <div className="bg-white border border-cream-200 rounded-2xl p-10 shadow-soft text-center space-y-6">
+          <div className="w-16 h-16 bg-cream-100 rounded-full flex items-center justify-center mx-auto">
+            <span className="text-2xl text-warm-500">◎</span>
+          </div>
+          <div>
+            <h2 className="font-display text-xl font-light text-warm-900 mb-2">
+              Your dashboard lives here
+            </h2>
+            <p className="text-warm-500 text-sm leading-relaxed max-w-sm mx-auto">
+              Complete your skin profile to unlock your personalized optimization score — sleep, stress, fitness, and skin health all in one view.
+            </p>
+          </div>
+          <a
+            href="/profile/setup"
+            className="inline-block px-8 py-3 bg-warm-900 text-white text-sm font-medium rounded-xl hover:bg-warm-800 transition-colors"
+          >
+            Set up my profile →
+          </a>
+          <p className="text-xs text-warm-400">Takes about 2 minutes · Saves automatically</p>
+        </div>
       </div>
     );
   }
@@ -25,8 +48,8 @@ export function DashboardShell() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Your Optimization Dashboard</h1>
-          <p className="text-zinc-400 text-sm mt-1">
+          <h1 className="font-display text-2xl font-light text-warm-900">Your Optimization Dashboard</h1>
+          <p className="text-warm-400 text-sm mt-1">
             Based on your profile — updated in real time as you adjust inputs.
           </p>
         </div>
@@ -38,7 +61,7 @@ export function DashboardShell() {
           {profile.goals.map(goal => (
             <span
               key={goal}
-              className="px-3 py-1 bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs rounded-full font-medium"
+              className="px-3 py-1 bg-blush-50 border border-blush-200 text-blush-600 text-xs rounded-full font-medium"
             >
               {formatGoal(goal)}
             </span>
@@ -47,18 +70,18 @@ export function DashboardShell() {
       )}
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-zinc-900 border border-zinc-800 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-cream-100 border border-cream-300 rounded-xl p-1 w-fit">
         {([
-          { id: 'dashboard', label: '⚡ Dashboard' },
-          { id: 'simulator', label: '🧪 What If Simulator' },
+          { id: 'dashboard', label: '✦ Dashboard' },
+          { id: 'simulator', label: '◎ What If Simulator' },
         ] as { id: Tab; label: string }[]).map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`px-5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
               activeTab === tab.id
-                ? 'bg-violet-600 text-white'
-                : 'text-zinc-400 hover:text-zinc-200'
+                ? 'bg-warm-900 text-white'
+                : 'text-warm-500 hover:text-warm-800'
             }`}
           >
             {tab.label}
@@ -80,7 +103,7 @@ export function DashboardShell() {
 
           {/* Category Breakdown */}
           <div>
-            <h2 className="text-sm font-semibold text-zinc-500 uppercase tracking-widest mb-4">
+            <h2 className="text-xs font-medium text-warm-400 uppercase tracking-widest mb-4">
               Category Breakdown
             </h2>
             <CategoryScoreGrid categories={score.categories} />

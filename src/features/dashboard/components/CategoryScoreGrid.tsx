@@ -6,19 +6,19 @@ interface Props {
   categories: CategoryScore[];
 }
 
-const CATEGORY_CONFIG: Record<string, { emoji: string; color: 'violet' | 'emerald' | 'amber' | 'blue' }> = {
-  skin:      { emoji: '✨', color: 'violet' },
-  sleep:     { emoji: '🌙', color: 'blue' },
-  fitness:   { emoji: '💪', color: 'emerald' },
-  lifestyle: { emoji: '🧘', color: 'amber' },
+const CATEGORY_CONFIG: Record<string, { emoji: string; color: 'blush' | 'sage' | 'gold' | 'warm' }> = {
+  skin:      { emoji: '✨', color: 'blush' },
+  sleep:     { emoji: '🌙', color: 'warm' },
+  fitness:   { emoji: '💪', color: 'sage' },
+  lifestyle: { emoji: '🧘', color: 'gold' },
 };
 
 const GRADE_COLORS: Record<string, string> = {
-  S: 'text-emerald-400',
-  A: 'text-violet-400',
-  B: 'text-amber-400',
-  C: 'text-orange-400',
-  D: 'text-red-400',
+  S: 'text-sage-500',
+  A: 'text-blush-500',
+  B: 'text-gold-500',
+  C: 'text-gold-400',
+  D: 'text-red-500',
 };
 
 export function CategoryScoreGrid({ categories }: Props) {
@@ -32,10 +32,10 @@ export function CategoryScoreGrid({ categories }: Props) {
               <div className="flex items-center gap-2">
                 <span className="text-xl">{config.emoji}</span>
                 <div>
-                  <p className="text-sm font-semibold text-zinc-200 capitalize">
+                  <p className="text-sm font-semibold text-warm-800 capitalize">
                     {cat.category}
                   </p>
-                  <p className="text-xs text-zinc-500">{cat.label}</p>
+                  <p className="text-xs text-warm-400">{cat.label}</p>
                 </div>
               </div>
               <span className={`text-2xl font-black ${GRADE_COLORS[cat.grade]}`}>
@@ -43,13 +43,14 @@ export function CategoryScoreGrid({ categories }: Props) {
               </span>
             </div>
 
-            <ProgressBar
-              value={cat.score}
-              color={config.color}
-              className="mb-3"
-            />
+            <div className="mb-3">
+              <ProgressBar
+                value={cat.score}
+                color={config.color}
+              />
+            </div>
 
-            <p className="text-xs text-zinc-500 leading-relaxed">
+            <p className="text-xs text-warm-500 leading-relaxed">
               {cat.topInsight}
             </p>
           </Card>

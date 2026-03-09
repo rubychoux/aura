@@ -62,14 +62,14 @@ export function OnboardingShell() {
   const stepInfo = STEP_TITLES[currentStep];
 
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-warm-50 flex flex-col items-center justify-center px-4 py-12">
       {/* Header */}
       <div className="w-full max-w-2xl mb-8">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-violet-600 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-warm-900 rounded-lg flex items-center justify-center">
             <span className="text-white text-sm font-black">A</span>
           </div>
-          <span className="text-white font-bold tracking-wide">AURA</span>
+          <span className="font-display text-warm-900 font-light tracking-widest">aura</span>
         </div>
         <StepProgressBar
           currentStep={currentStep}
@@ -78,10 +78,10 @@ export function OnboardingShell() {
       </div>
 
       {/* Card */}
-      <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+      <div className="w-full max-w-2xl bg-white border border-cream-200 rounded-2xl p-8 shadow-soft">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-white">{stepInfo.title}</h2>
-          <p className="text-zinc-400 text-sm mt-1">{stepInfo.subtitle}</p>
+          <h2 className="font-display text-2xl font-light text-warm-900">{stepInfo.title}</h2>
+          <p className="text-warm-400 text-sm mt-1">{stepInfo.subtitle}</p>
         </div>
 
         {/* Step Content */}
@@ -128,10 +128,10 @@ export function OnboardingShell() {
               ].map(({ label, value }) => (
                 <div
                   key={label}
-                  className="flex justify-between items-center py-2 border-b border-zinc-800"
+                  className="flex justify-between items-center py-2 border-b border-cream-100"
                 >
-                  <span className="text-zinc-400 text-sm">{label}</span>
-                  <span className="text-zinc-100 text-sm font-medium capitalize">{value}</span>
+                  <span className="text-warm-400 text-sm">{label}</span>
+                  <span className="text-warm-800 text-sm font-medium capitalize">{value}</span>
                 </div>
               ))}
             </div>

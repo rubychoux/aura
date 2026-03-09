@@ -27,9 +27,9 @@ export function StepProgressBar({ currentStep, currentStepIndex }: Props) {
               <div
                 className={cn(
                   'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300',
-                  isCompleted && 'bg-violet-600 text-white',
-                  isActive && 'bg-violet-500/20 border-2 border-violet-500 text-violet-300',
-                  !isCompleted && !isActive && 'bg-zinc-800 text-zinc-600'
+                  isCompleted && 'bg-warm-900 text-white',
+                  isActive && 'bg-blush-50 border-2 border-blush-400 text-blush-600',
+                  !isCompleted && !isActive && 'bg-cream-200 text-warm-400'
                 )}
               >
                 {isCompleted ? '✓' : index + 1}
@@ -37,7 +37,7 @@ export function StepProgressBar({ currentStep, currentStepIndex }: Props) {
               <span
                 className={cn(
                   'text-xs hidden sm:block',
-                  isActive ? 'text-violet-300' : 'text-zinc-600'
+                  isActive ? 'text-blush-500' : 'text-warm-400'
                 )}
               >
                 {STEP_LABELS[step]}
@@ -47,7 +47,7 @@ export function StepProgressBar({ currentStep, currentStepIndex }: Props) {
               <div
                 className={cn(
                   'h-0.5 w-8 sm:w-12 mb-4 transition-all duration-500',
-                  isCompleted ? 'bg-violet-600' : 'bg-zinc-800'
+                  isCompleted ? 'bg-warm-800' : 'bg-cream-200'
                 )}
               />
             )}

@@ -20,11 +20,11 @@ const PRIORITY_VARIANT: Record<string, 'danger' | 'warning' | 'default'> = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  skincare:    'bg-violet-500/10 text-violet-300',
-  fitness:     'bg-emerald-500/10 text-emerald-300',
-  nutrition:   'bg-amber-500/10 text-amber-300',
-  mindfulness: 'bg-blue-500/10 text-blue-300',
-  sleep:       'bg-indigo-500/10 text-indigo-300',
+  skincare:    'bg-blush-50 text-blush-500',
+  fitness:     'bg-sage-50 text-sage-500',
+  nutrition:   'bg-gold-100 text-gold-500',
+  mindfulness: 'bg-warm-100 text-warm-600',
+  sleep:       'bg-warm-100 text-warm-600',
 };
 
 export function DailyRoutineCard({ steps }: Props) {
@@ -47,8 +47,8 @@ export function DailyRoutineCard({ steps }: Props) {
           <div key={time}>
             <div className="flex items-center gap-2 mb-3">
               <span className="text-lg">{timeConfig.emoji}</span>
-              <h3 className="text-sm font-semibold text-zinc-300">{timeConfig.label}</h3>
-              <div className="flex-1 h-px bg-zinc-800" />
+              <h3 className="text-sm font-semibold text-warm-600">{timeConfig.label}</h3>
+              <div className="flex-1 h-px bg-cream-200" />
             </div>
 
             <div className="space-y-3">
@@ -57,7 +57,7 @@ export function DailyRoutineCard({ steps }: Props) {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2 flex-wrap">
-                        <p className="text-sm font-semibold text-zinc-100">{step.title}</p>
+                        <p className="text-sm font-semibold text-warm-800">{step.title}</p>
                         <Badge variant={PRIORITY_VARIANT[step.priority]}>
                           {step.priority}
                         </Badge>
@@ -65,11 +65,11 @@ export function DailyRoutineCard({ steps }: Props) {
                           {step.category}
                         </span>
                       </div>
-                      <p className="text-xs text-zinc-500 leading-relaxed">{step.description}</p>
+                      <p className="text-xs text-warm-500 leading-relaxed">{step.description}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <p className="text-sm font-bold text-zinc-300">{step.durationMinutes}m</p>
-                      <p className="text-xs text-zinc-600">duration</p>
+                      <p className="text-sm font-bold text-warm-700">{step.durationMinutes}m</p>
+                      <p className="text-xs text-warm-400">duration</p>
                     </div>
                   </div>
                 </Card>

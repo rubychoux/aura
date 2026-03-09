@@ -13,7 +13,7 @@ export function InsightsFeed({ categories, profile }: Props) {
 
   return (
     <Card>
-      <p className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">
+      <p className="text-xs font-medium text-warm-400 uppercase tracking-widest mb-4">
         Priority Insights
       </p>
       <div className="space-y-4">
@@ -22,10 +22,10 @@ export function InsightsFeed({ categories, profile }: Props) {
             <span className="text-lg mt-0.5">{insight.emoji}</span>
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <p className="text-sm font-semibold text-zinc-200">{insight.title}</p>
+                <p className="text-sm font-semibold text-warm-800">{insight.title}</p>
                 <Badge variant={insight.badgeVariant}>{insight.tag}</Badge>
               </div>
-              <p className="text-xs text-zinc-500 leading-relaxed">{insight.body}</p>
+              <p className="text-xs text-warm-500 leading-relaxed">{insight.body}</p>
             </div>
           </div>
         ))}

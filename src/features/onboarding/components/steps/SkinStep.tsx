@@ -1,4 +1,3 @@
-import { Card } from '@/components/ui/Card';
 import { cn } from '@/utils/cn';
 import { SKIN_TYPES, CLIMATES } from '@/utils/constants';
 import type { SkinType, Climate } from '@/types';
@@ -13,7 +12,7 @@ export function SkinStep({ skinType, climate, onChange }: Props) {
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-4">
+        <h3 className="text-sm font-semibold text-warm-400 uppercase tracking-widest mb-4">
           Skin Type
         </h3>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -24,8 +23,8 @@ export function SkinStep({ skinType, climate, onChange }: Props) {
               className={cn(
                 'p-4 rounded-xl border text-left transition-all duration-150',
                 skinType === type.value
-                  ? 'border-violet-500 bg-violet-500/10 text-violet-300'
-                  : 'border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200'
+                  ? 'border-blush-400 bg-blush-50 text-blush-600'
+                  : 'border-cream-200 bg-white text-warm-600 hover:border-cream-400 hover:text-warm-900'
               )}
             >
               <p className="font-semibold text-sm">{type.label}</p>
@@ -36,7 +35,7 @@ export function SkinStep({ skinType, climate, onChange }: Props) {
       </div>
 
       <div>
-        <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-4">
+        <h3 className="text-sm font-semibold text-warm-400 uppercase tracking-widest mb-4">
           Your Climate
         </h3>
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
@@ -47,8 +46,8 @@ export function SkinStep({ skinType, climate, onChange }: Props) {
               className={cn(
                 'p-4 rounded-xl border text-center transition-all duration-150',
                 climate === c.value
-                  ? 'border-violet-500 bg-violet-500/10 text-violet-300'
-                  : 'border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200'
+                  ? 'border-blush-400 bg-blush-50 text-blush-600'
+                  : 'border-cream-200 bg-white text-warm-600 hover:border-cream-400 hover:text-warm-900'
               )}
             >
               <p className="text-2xl mb-1">{c.emoji}</p>

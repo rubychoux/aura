@@ -12,24 +12,30 @@ export function Button({
   fullWidth = false,
   className,
   children,
-  disabled,
   ...props
 }: ButtonProps) {
+  const variants = {
+    primary: 'bg-warm-900 text-white hover:bg-warm-800 active:bg-warm-900',
+    secondary: 'bg-cream-100 text-warm-800 border border-cream-300 hover:bg-cream-200',
+    ghost: 'text-warm-600 hover:bg-cream-100 hover:text-warm-900',
+    danger: 'bg-red-50 text-red-700 border border-red-200 hover:bg-red-100',
+  };
+
+  const sizes = {
+    sm: 'px-3 py-1.5 text-sm rounded-lg',
+    md: 'px-5 py-2.5 text-sm rounded-xl',
+    lg: 'px-7 py-3.5 text-base rounded-xl',
+  };
+
   return (
     <button
       className={cn(
-        'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed',
-        variant === 'primary' && 'bg-violet-600 hover:bg-violet-500 text-white',
-        variant === 'secondary' && 'bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border border-zinc-700',
-        variant === 'ghost' && 'bg-transparent hover:bg-zinc-800 text-zinc-400 hover:text-zinc-100',
-        variant === 'danger' && 'bg-red-600 hover:bg-red-500 text-white',
-        size === 'sm' && 'text-xs px-3 py-1.5',
-        size === 'md' && 'text-sm px-4 py-2.5',
-        size === 'lg' && 'text-base px-6 py-3',
+        'font-medium transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed',
+        variants[variant],
+        sizes[size],
         fullWidth && 'w-full',
         className
       )}
-      disabled={disabled}
       {...props}
     >
       {children}

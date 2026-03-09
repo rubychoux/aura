@@ -20,17 +20,17 @@ const FREQUENCY_LABELS: Record<number, string> = {
 export function FitnessStep({ workoutFrequency = 3, onChange }: Props) {
   return (
     <div className="space-y-8">
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+      <div className="bg-cream-50 border border-cream-200 rounded-2xl p-6">
         <div className="text-center mb-8">
-          <p className="text-5xl font-black text-violet-400">{workoutFrequency}x</p>
-          <p className="text-zinc-400 text-sm mt-2">{FREQUENCY_LABELS[workoutFrequency]}</p>
+          <p className="text-5xl font-black text-blush-500">{workoutFrequency}x</p>
+          <p className="text-warm-400 text-sm mt-2">{FREQUENCY_LABELS[workoutFrequency]}</p>
         </div>
         <Slider
+          label=""
           value={workoutFrequency}
           min={0}
           max={7}
           step={1}
-          showValue={false}
           onChange={(v) => onChange({ workoutFrequency: v as WorkoutFrequency })}
         />
       </div>
@@ -42,8 +42,8 @@ export function FitnessStep({ workoutFrequency = 3, onChange }: Props) {
             onClick={() => onChange({ workoutFrequency: Number(freq) as WorkoutFrequency })}
             className={`p-2 rounded-lg text-xs text-center transition-all ${
               workoutFrequency === Number(freq)
-                ? 'bg-violet-600 text-white'
-                : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
+                ? 'bg-warm-900 text-white'
+                : 'bg-cream-100 text-warm-500 hover:bg-cream-200'
             }`}
           >
             {label}
